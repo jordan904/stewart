@@ -602,14 +602,21 @@ button { cursor: pointer; }
   min-height: 80vh;
 }
 
-/* Photo: full left half, no border, no shadow */
+/* Photo: left half, contained and centered */
 .about__image {
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  background: var(--black);
 }
 .about__image img {
   width: 100%;
-  height: 100%;
+  max-width: 360px;
+  height: auto;
   object-fit: cover;
+  border-radius: 12px;
 }
 
 /* Right side: cream background */
