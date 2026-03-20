@@ -163,6 +163,7 @@ button { cursor: pointer; }
   font-size: 24px;
   font-weight: 700;
   color: var(--white);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 .nav__logo span {
   color: var(--accent);
@@ -180,10 +181,11 @@ button { cursor: pointer; }
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.9);
+  color: var(--white);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 .nav__links a:hover {
-  color: var(--white);
+  color: var(--accent);
 }
 .nav--scrolled .nav__links a {
   color: rgba(0,0,0,0.5);
@@ -1261,6 +1263,94 @@ button { cursor: pointer; }
   }
   .contact__card:hover {
     transform: translateX(8px);
+  }
+
+  /* Hero gold accent line draw-in */
+  .hero__tagline::before {
+    animation: draw-line 1s var(--ease-out) 0.3s both;
+  }
+  @keyframes draw-line {
+    from { width: 0; }
+    to { width: 60px; }
+  }
+
+  /* About image parallax-lite zoom on reveal */
+  .about__image img {
+    transition: transform 8s linear;
+    transform: scale(1.08);
+  }
+  .about__image:hover img,
+  .about.visible .about__image img {
+    transform: scale(1);
+  }
+
+  /* Footer links stagger */
+  .footer__links li {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fade-up 0.5s var(--ease-out) forwards;
+  }
+  .footer__links li:nth-child(1) { animation-delay: 0s; }
+  .footer__links li:nth-child(2) { animation-delay: 0.05s; }
+  .footer__links li:nth-child(3) { animation-delay: 0.1s; }
+  .footer__links li:nth-child(4) { animation-delay: 0.15s; }
+  @keyframes fade-up {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Section tagline shimmer */
+  .section__tagline {
+    background: linear-gradient(90deg, var(--accent) 0%, #e8d5a8 50%, var(--accent) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+  }
+
+  /* BA card scale in */
+  .ba-card.reveal {
+    transform: scale(0.92) translateY(40px);
+  }
+  .ba-card.reveal.visible {
+    transform: scale(1) translateY(0);
+  }
+
+  /* Service card stagger entrance */
+  .service-card.reveal:nth-child(1) { transition-delay: 0s; }
+  .service-card.reveal:nth-child(2) { transition-delay: 0.1s; }
+  .service-card.reveal:nth-child(3) { transition-delay: 0.2s; }
+  .service-card.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+  /* Gallery item stagger entrance */
+  .gallery__item.reveal:nth-child(1) { transition-delay: 0s; }
+  .gallery__item.reveal:nth-child(2) { transition-delay: 0.08s; }
+  .gallery__item.reveal:nth-child(3) { transition-delay: 0.16s; }
+  .gallery__item.reveal:nth-child(4) { transition-delay: 0.24s; }
+  .gallery__item.reveal:nth-child(5) { transition-delay: 0.32s; }
+  .gallery__item.reveal:nth-child(6) { transition-delay: 0.4s; }
+
+  /* CTA banner slide in from right */
+  .cta-banner__card.reveal {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  .cta-banner__card.reveal.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* Button pulse on hero */
+  .hero__actions .btn--primary {
+    animation: pulse-glow 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 4px 20px rgba(200, 169, 110, 0.2); }
+    50% { box-shadow: 0 8px 40px rgba(200, 169, 110, 0.45); }
   }
 }
 
