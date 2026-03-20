@@ -957,21 +957,20 @@ button { cursor: pointer; }
 
 /* ===== CTA BANNER ===== */
 .cta-banner {
-  padding: 120px 0;
-  background: var(--white);
+  padding: 0;
+  background: var(--black);
   content-visibility: auto;
 }
 .cta-banner__card {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: var(--white);
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 12px;
+  background: var(--dark);
   overflow: hidden;
+  min-height: 500px;
 }
 .cta-banner__img {
   height: 100%;
-  min-height: 350px;
+  min-height: 400px;
 }
 .cta-banner__img img {
   width: 100%;
@@ -979,35 +978,38 @@ button { cursor: pointer; }
   object-fit: cover;
 }
 .cta-banner__content {
-  padding: 48px 56px;
+  padding: 60px 64px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+.cta-banner__content .section__tagline {
+  color: var(--accent);
+}
 .cta-banner__content h3 {
   font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 700;
-  color: var(--black);
+  color: var(--white);
   line-height: 1.15;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 .cta-banner__content > p:not(.section__tagline) {
-  font-size: 16px;
-  color: rgba(0,0,0,0.55);
+  font-size: 17px;
+  color: rgba(255,255,255,0.5);
   line-height: 1.7;
-  margin-bottom: 32px;
-  max-width: 420px;
+  margin-bottom: 36px;
+  max-width: 440px;
 }
 .cta-banner__actions {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 .btn--dark-outline {
   background: transparent;
-  color: var(--black);
-  border: 1px solid rgba(0,0,0,0.2);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 /* ===== LIGHTBOX ===== */
@@ -1123,9 +1125,9 @@ button { cursor: pointer; }
     transform: translateY(-3px);
   }
   .btn--dark-outline:hover {
-    background: var(--black);
-    color: var(--white);
-    border-color: var(--black);
+    background: var(--white);
+    color: var(--black);
+    border-color: var(--white);
     transform: translateY(-3px);
   }
   .nav {
@@ -1475,14 +1477,14 @@ button { cursor: pointer; }
     gap: 60px;
   }
 
-  .cta-banner {
-    padding: 80px 0;
-  }
   .cta-banner__card {
     grid-template-columns: 1fr;
   }
   .cta-banner__img {
-    min-height: 250px;
+    min-height: 280px;
+  }
+  .cta-banner__content {
+    padding: 48px 40px;
   }
 
   .footer__inner {
@@ -1603,11 +1605,8 @@ button { cursor: pointer; }
   }
 
   /* CTA Banner mobile */
-  .cta-banner {
-    padding: 60px 0;
-  }
   .cta-banner__content {
-    padding: 32px 24px;
+    padding: 36px 24px;
   }
   .cta-banner__actions {
     flex-direction: column;
