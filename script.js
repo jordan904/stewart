@@ -90,7 +90,7 @@
           c => c.classList.contains('reveal') || c.classList.contains('hero-reveal')
         );
         const index = siblings.indexOf(entry.target);
-        const delay = Math.min(index * 100, 400); // max 400ms stagger
+        const delay = Math.min(index * 150, 600); // max 600ms stagger
 
         setTimeout(() => {
           entry.target.classList.add('visible');
