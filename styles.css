@@ -1689,10 +1689,109 @@ button { cursor: pointer; }
     gap: 40px;
   }
 
+  /* About image needs overflow hidden for zoom animation */
+  .about__image {
+    overflow: hidden;
+    padding: 0;
+  }
+  .about__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    max-width: none;
+  }
+
+  /* Center section titles on mobile */
+  .services .section__tagline,
+  .services .section__title,
+  .gallery .section__tagline,
+  .gallery .section__title {
+    text-align: center;
+  }
+
+  /* Center about content on mobile */
+  .about__content .section__tagline,
+  .about__content .section__title {
+    text-align: center;
+  }
+  .about__text {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about .btn--primary {
+    align-self: center;
+  }
+  .about__features {
+    align-items: center;
+  }
+
+  /* Contact center on mobile */
+  .contact .section__tagline,
+  .contact .section__title {
+    text-align: center;
+  }
+
   /* Mobile nav transition */
   @media (prefers-reduced-motion: no-preference) {
     .nav__links {
       transition: right 0.4s var(--ease-out);
+    }
+
+    /* Hero slide-up from bottom on mobile */
+    .hero-reveal {
+      transform: translateY(40px);
+    }
+    .hero-reveal.visible {
+      transform: translateY(0);
+    }
+
+    /* Service cards slide from alternating sides on mobile */
+    .service-card.reveal:nth-child(odd) {
+      transform: translateX(-60px);
+      opacity: 0;
+    }
+    .service-card.reveal:nth-child(even) {
+      transform: translateX(60px);
+      opacity: 0;
+    }
+    .service-card.reveal.visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    /* Gallery items scale up on mobile */
+    .gallery__item.reveal {
+      transform: scale(0.85);
+      opacity: 0;
+    }
+    .gallery__item.reveal.visible {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* About content slide up on mobile */
+    .about__text.reveal,
+    .about__features.reveal,
+    .about .btn.reveal {
+      transform: translateY(50px);
+    }
+
+    /* CTA banner slide up instead of right on mobile */
+    .cta-banner__card.reveal {
+      transform: translateY(80px);
+    }
+    .cta-banner__card.reveal.visible {
+      transform: translateY(0);
+    }
+
+    /* Contact cards slide up on mobile instead of right */
+    .contact__card.reveal {
+      transform: translateY(40px);
+    }
+    .contact__card.reveal.visible {
+      transform: translateY(0);
     }
   }
 }
