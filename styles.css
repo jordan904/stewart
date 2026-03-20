@@ -325,6 +325,46 @@ button { cursor: pointer; }
   gap: 16px;
 }
 
+/* ===== SCROLLING MARQUEE ===== */
+.marquee {
+  background: var(--dark);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 18px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-inner {
+  display: flex;
+  gap: 3rem;
+  animation: scroll-marquee 30s linear infinite;
+}
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+@keyframes scroll-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-inner { animation: none; }
+}
+
 /* ===== SERVICES — Editorial with large numbers ===== */
 .services {
   padding: 140px 0;
@@ -1547,7 +1587,9 @@ button { cursor: pointer; }
   .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -1561,7 +1603,7 @@ button { cursor: pointer; }
     display: block;
     position: absolute;
     inset: 0;
-    background: rgba(10,10,10,0.65);
+    background: rgba(10,10,10,0.6);
     z-index: 1;
   }
   .hero__content {
@@ -1569,14 +1611,25 @@ button { cursor: pointer; }
     z-index: 2;
     width: 100%;
     padding: 0 24px;
-    margin-left: 0;
+    margin: 0;
     background: transparent;
     text-align: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
   .hero__tagline::before {
     left: 50%;
     transform: translateX(-50%);
+  }
+  .hero__subtitle {
+    max-width: 340px;
+  }
+
+  /* Marquee faster on mobile */
+  .marquee-inner {
+    animation-duration: 15s;
   }
   .hero__title {
     font-size: 36px;
