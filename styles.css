@@ -146,7 +146,7 @@ button { cursor: pointer; }
   width: 100%;
   z-index: 1000;
   padding: 24px 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%);
 }
 .nav--scrolled {
   background: var(--white);
@@ -163,7 +163,7 @@ button { cursor: pointer; }
   font-size: 24px;
   font-weight: 700;
   color: var(--white);
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
 }
 .nav__logo span {
   color: var(--accent);
@@ -182,7 +182,8 @@ button { cursor: pointer; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--white);
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  font-weight: 600;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
 }
 .nav__links a:hover {
   color: var(--accent);
@@ -296,6 +297,18 @@ button { cursor: pointer; }
   color: var(--white);
   line-height: 1.1;
   margin-bottom: 24px;
+  background: linear-gradient(
+    135deg,
+    var(--white) 0%,
+    var(--white) 40%,
+    var(--accent) 50%,
+    var(--white) 60%,
+    var(--white) 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero__subtitle {
@@ -1263,6 +1276,15 @@ button { cursor: pointer; }
   }
   .contact__card:hover {
     transform: translateX(8px);
+  }
+
+  /* Hero title gold sweep */
+  .hero__title {
+    animation: gold-sweep 4s var(--ease) 0.8s both;
+  }
+  @keyframes gold-sweep {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
   }
 
   /* Hero gold accent line draw-in */
