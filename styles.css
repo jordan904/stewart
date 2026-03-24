@@ -368,6 +368,7 @@ button { cursor: pointer; }
 /* ===== SERVICES — Editorial with large numbers ===== */
 .services {
   padding: 140px 0;
+  content-visibility: auto;
 }
 .services .section__tagline,
 .services .section__title {

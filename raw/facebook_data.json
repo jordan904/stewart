@@ -1,0 +1,26 @@
+{
+  "scraped_at": "2026-03-20T10:46:21.959503",
+  "source_url": "https://www.facebook.com/profile.php?id=100091381907742",
+  "business": {
+    "name": "Stewart & Co. Painting",
+    "category": "Category",
+    "address": null,
+    "phone": null,
+    "email": null,
+    "website": "WhatsApp",
+    "hours": null,
+    "description": null
+  },
+  "reviews": [],
+  "photos": [
+    "photos/photo_001.jpg",
+    "photos/photo_002.jpg",
+    "photos/photo_003.jpg",
+    "photos/photo_004.jpg",
+    "photos/photo_005.jpg",
+    "photos/photo_006.jpg",
+    "photos/photo_007.jpg",
+    "photos/cover.jpg",
+    "photos/profile.jpg"
+  ]
+}

@@ -155,7 +155,11 @@
       }
     }
     syncSize();
-    window.addEventListener('resize', syncSize);
+    let syncTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(syncTimer);
+      syncTimer = setTimeout(syncSize, 150);
+    }, { passive: true });
   });
 
   // ===== CONTACT FORM =====
