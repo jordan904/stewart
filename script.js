@@ -172,18 +172,37 @@
 
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData);
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
 
-      contactForm.innerHTML = `
-        <div class="form__success active">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
-          </svg>
-          <h3>Request Received</h3>
-          <p>Thank you, ${data.name || ''}. We'll be in touch within 24 hours.</p>
-          <p style="margin-top: 20px;"><a href="tel:+19025802665" style="color: var(--accent); font-family: var(--font-display); font-size: 24px;">(902) 580-2665</a></p>
-        </div>
-      `;
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          contactForm.innerHTML = `
+            <div class="form__success active">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <h3>Request Received</h3>
+              <p>Thank you, ${data.name || ''}. We'll be in touch within 24 hours.</p>
+              <p style="margin-top: 20px;"><a href="tel:+19025802665" style="color: var(--accent); font-family: var(--font-display); font-size: 24px;">(902) 580-2665</a></p>
+            </div>
+          `;
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Quote Request';
+          alert('Something went wrong. Please try again or call us directly.');
+        }
+      }).catch(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Quote Request';
+        alert('Something went wrong. Please try again or call us directly.');
+      });
     });
   }
 
