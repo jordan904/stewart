@@ -480,9 +480,15 @@ button { cursor: pointer; }
   grid-template-rows: repeat(2, 1fr);
   gap: 20px;
 }
-/* Center items when last page has fewer than 6 */
+/* Center the incomplete last row on the last page */
 .gallery__page:last-child .gallery__grid {
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.gallery__page:last-child .gallery__item {
+  flex: 0 0 calc(33.333% - 14px);
 }
 
 /* Navigation arrows */
@@ -1576,6 +1582,9 @@ button { cursor: pointer; }
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
   }
+  .gallery__page:last-child .gallery__item {
+    flex: 0 0 calc(50% - 10px);
+  }
   .gallery__arrow--left { left: -16px; }
   .gallery__arrow--right { right: -16px; }
 
@@ -1750,6 +1759,12 @@ button { cursor: pointer; }
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
     gap: 12px;
+  }
+  .gallery__page:last-child .gallery__grid {
+    gap: 12px;
+  }
+  .gallery__page:last-child .gallery__item {
+    flex: 0 0 calc(50% - 6px);
   }
   .gallery__arrow {
     width: 40px;
