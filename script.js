@@ -187,6 +187,50 @@
     });
   }
 
+  // ===== GALLERY SCROLL =====
+  const galleryScroll = document.querySelector('.gallery__scroll');
+  const galleryPages = document.querySelectorAll('.gallery__page');
+  const galleryDotsContainer = document.querySelector('.gallery__dots');
+  const arrowLeft = document.querySelector('.gallery__arrow--left');
+  const arrowRight = document.querySelector('.gallery__arrow--right');
+  let currentPage = 0;
+
+  // Build dot indicators
+  galleryPages.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'gallery__dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to gallery page ' + (i + 1));
+    dot.addEventListener('click', () => scrollToPage(i));
+    galleryDotsContainer.appendChild(dot);
+  });
+
+  function scrollToPage(index) {
+    const page = galleryPages[index];
+    if (page) {
+      galleryScroll.scrollTo({ left: page.offsetLeft, behavior: 'smooth' });
+    }
+  }
+
+  function updateGalleryState() {
+    const scrollLeft = galleryScroll.scrollLeft;
+    const pageWidth = galleryScroll.offsetWidth;
+    currentPage = Math.round(scrollLeft / pageWidth);
+
+    // Update dots
+    galleryDotsContainer.querySelectorAll('.gallery__dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentPage);
+    });
+
+    // Update arrows
+    arrowLeft.disabled = currentPage === 0;
+    arrowRight.disabled = currentPage === galleryPages.length - 1;
+  }
+
+  galleryScroll.addEventListener('scroll', updateGalleryState, { passive: true });
+  arrowLeft.addEventListener('click', () => scrollToPage(currentPage - 1));
+  arrowRight.addEventListener('click', () => scrollToPage(currentPage + 1));
+  updateGalleryState();
+
   // ===== LIGHTBOX =====
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = lightbox.querySelector('.lightbox__img');
@@ -195,10 +239,10 @@
   const lightboxPrev = lightbox.querySelector('.lightbox__prev');
   const lightboxNext = lightbox.querySelector('.lightbox__next');
   const galleryItems = document.querySelectorAll('[data-lightbox]');
-  let currentIndex = 0;
+  let currentLightboxIndex = 0;
 
   function openLightbox(index) {
-    currentIndex = index;
+    currentLightboxIndex = index;
     const item = galleryItems[index];
     lightboxImg.src = item.getAttribute('data-lightbox');
     lightboxImg.alt = item.getAttribute('data-caption') || '';
@@ -213,13 +257,13 @@
   }
 
   function showPrev() {
-    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    openLightbox(currentIndex);
+    currentLightboxIndex = (currentLightboxIndex - 1 + galleryItems.length) % galleryItems.length;
+    openLightbox(currentLightboxIndex);
   }
 
   function showNext() {
-    currentIndex = (currentIndex + 1) % galleryItems.length;
-    openLightbox(currentIndex);
+    currentLightboxIndex = (currentLightboxIndex + 1) % galleryItems.length;
+    openLightbox(currentLightboxIndex);
   }
 
   galleryItems.forEach((item, i) => {
