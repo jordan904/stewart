@@ -1,0 +1,22 @@
+# Cloudflare Pages response headers. GitHub Pages ignores this file.
+# Cache-Control max-age is the modern replacement for Expires headers.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# HTML, CSS and JS keep Cloudflare's default (max-age=0, must-revalidate)
+# because they aren't versioned, so edits show up immediately.
+# Photos: cache for 1 week. When replacing a photo, give the new file a new name.
+/assets/*
+  Cache-Control: public, max-age=604800
+
+/favicon.svg
+  Cache-Control: public, max-age=604800
+
+# Review site only: keep the pages.dev addresses out of search results so they
+# don't compete with stewartandcopainting.ca. The real domain is unaffected.
+https://stewartandco.pages.dev/*
+  X-Robots-Tag: noindex
+https://:hash.stewartandco.pages.dev/*
+  X-Robots-Tag: noindex

@@ -53,6 +53,7 @@ a {
 }
 ul { list-style: none; }
 button { cursor: pointer; }
+picture { display: contents; }
 
 /* ===== SKIP LINK ===== */
 .skip-link {
