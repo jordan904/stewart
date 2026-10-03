@@ -54,6 +54,7 @@
     '.section__tagline',
     '.section__title',
     '.service-card',
+    '.review-card',
     '.gallery__item',
     '.ba-card',
     '.about__content .section__tagline',
