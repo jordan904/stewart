@@ -1994,6 +1994,7 @@ picture { display: contents; }
 .reviews {
   padding: 100px 0;
   background: var(--cream);
+  text-align: center;
 }
 .reviews .section__title { margin-bottom: 16px; }
 .reviews__summary {
@@ -2001,11 +2002,15 @@ picture { display: contents; }
   font-size: 18px;
 }
 .reviews__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 }
 .review-card {
+  flex: 0 1 calc((100% - 48px) / 3);
+  min-width: 300px;
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -2017,6 +2022,7 @@ picture { display: contents; }
 }
 .review-card__stars {
   display: flex;
+  justify-content: center;
   gap: 2px;
   color: #a8832f;
 }
@@ -2053,5 +2059,5 @@ picture { display: contents; }
 @media (max-width: 640px) {
   .service-area, .reviews { padding: 72px 0; }
   .review-card { padding: 24px; }
-  .reviews__grid { grid-template-columns: 1fr; }
+  .review-card { flex-basis: 100%; min-width: 0; }
 }
