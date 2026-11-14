@@ -2061,3 +2061,90 @@ picture { display: contents; }
   .review-card { padding: 24px; }
   .review-card { flex-basis: 100%; min-width: 0; }
 }
+
+/* ===== SPECIALTY COATINGS ===== */
+.specialty {
+  padding: 120px 0;
+  background: var(--cream);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
+.specialty__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: start;
+}
+.specialty__intro .section__title {
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.specialty__intro .section__title span {
+  display: block;
+}
+.specialty__intro p {
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+.specialty__cta {
+  font-weight: 500;
+  color: var(--black);
+}
+.specialty__cta a {
+  display: inline-block;
+  padding: 10px 0;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 5px;
+}
+.specialty__list {
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+}
+.specialty__item {
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+.specialty__item h3 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.specialty__item p {
+  font-size: 17px;
+  line-height: 1.7;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .specialty__cta a {
+    transition: color var(--transition-fast, 150ms ease);
+  }
+  .specialty__cta a:hover {
+    color: #8a6a26;
+  }
+  .specialty__item.reveal:nth-child(1) { transition-delay: 0.1s; }
+  .specialty__item.reveal:nth-child(2) { transition-delay: 0.25s; }
+  .specialty__item.reveal:nth-child(3) { transition-delay: 0.4s; }
+}
+@media (max-width: 960px) {
+  .specialty { padding: 88px 0; }
+  .specialty__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+@media (max-width: 640px) {
+  .specialty { padding: 72px 0; }
+  .specialty__item { padding: 24px 0; }
+}
+/* Gold tagline is too light on cream: use a darker gold here */
+.specialty .section__tagline {
+  color: #7a5d1f;
+  background: none;
+  -webkit-text-fill-color: #7a5d1f;
+  animation: none;
+}

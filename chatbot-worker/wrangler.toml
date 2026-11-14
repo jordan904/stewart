@@ -1,0 +1,15 @@
+name = "stewart-co-chatbot"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://stewartandcopainting.ca,https://www.stewartandcopainting.ca,https://stewartandco.pages.dev,http://localhost:3000,http://localhost:3018"
+
+[ai]
+binding = "AI"
+
+# Chat logging is off until the site has a privacy policy that tells visitors.
+# To turn it on, create a namespace (STEWART_CHAT_LOGS) and uncomment:
+# [[kv_namespaces]]
+# binding = "CHAT_LOGS"
+# id = ""

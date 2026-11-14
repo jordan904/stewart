@@ -54,6 +54,8 @@
     '.section__tagline',
     '.section__title',
     '.service-card',
+    '.specialty__intro',
+    '.specialty__item',
     '.review-card',
     '.gallery__item',
     '.ba-card',
@@ -170,7 +172,7 @@
       e.preventDefault();
 
       // Honeypot check
-      const honeypot = contactForm.querySelector('input[name="website"]');
+      const honeypot = contactForm.querySelector('input[name="check_field"]');
       if (honeypot && honeypot.value) {
         return;
       }

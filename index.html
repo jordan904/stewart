@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="chatbot/chatbot.css?v=1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,6 +27,7 @@
     "name": "Stewart & Co. Painting",
     "description": "Full service interior and exterior painting company serving Halifax, Nova Scotia and the Halifax Regional Municipality with over 15 years of experience.",
     "telephone": "+19025802665",
+    "email": "stewart.co.painting@gmail.com",
     "url": "https://stewartandcopainting.ca/",
     "image": "https://stewartandcopainting.ca/assets/photos/facebook/photo_007.jpg",
     "address": {
@@ -57,7 +59,10 @@
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wood Staining", "areaServed": "Halifax Regional Municipality, Nova Scotia"}},
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wood Varnishing", "areaServed": "Halifax Regional Municipality, Nova Scotia"}},
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Spray Painting", "areaServed": "Halifax Regional Municipality, Nova Scotia"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Finishes", "areaServed": "Halifax Regional Municipality, Nova Scotia"}}
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Finishes", "areaServed": "Halifax Regional Municipality, Nova Scotia"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Magnetic and Dry Erase Wall Painting", "areaServed": "Halifax Regional Municipality, Nova Scotia"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Chalkboard Paint", "areaServed": "Halifax Regional Municipality, Nova Scotia"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Epoxy Coatings", "areaServed": "Halifax Regional Municipality, Nova Scotia"}}
       ]
     },
     "sameAs": [
@@ -196,6 +201,33 @@
           <p>Built-in shelving, wainscoting, and specialty finishes with meticulous attention to detail.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Specialty coatings -->
+  <section class="specialty" id="specialty" aria-labelledby="specialty-title">
+    <div class="container specialty__inner">
+      <div class="specialty__intro">
+        <p class="section__tagline">Specialty Coatings</p>
+        <h2 class="section__title section__title--left" id="specialty-title"><span>Walls you can write on,</span> <span>stick to and wipe clean</span></h2>
+        <p>Besides regular painting, we do specialty coatings. The one people ask about most is magnetic paint and dry erase paint on the same wall, so it holds magnets and works like a whiteboard.</p>
+        <p class="specialty__cta">Ask Dan about it at your free estimate: <a href="tel:+19025802665">(902) 580-2665</a></p>
+        <!-- Video and photo of a magnetic dry erase wall go here when Dan sends them -->
+      </div>
+      <ul class="specialty__list">
+        <li class="specialty__item">
+          <h3>Magnetic and dry erase walls</h3>
+          <p>One wall that takes magnets and wipes clean. Handy in kitchens, kids&rsquo; rooms, home offices and meeting rooms.</p>
+        </li>
+        <li class="specialty__item">
+          <h3>Chalkboard paint</h3>
+          <p>A write-on chalk surface for a wall, a door or the inside of a pantry.</p>
+        </li>
+        <li class="specialty__item">
+          <h3>Epoxy coatings</h3>
+          <p>A hard, glossy coating that stands up to wear and cleans up easily.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -506,8 +538,8 @@
           </div>
           <!-- Honeypot field -->
           <div class="form-hp" aria-hidden="true">
-            <label for="website">Website</label>
-            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            <label for="check_field">Leave this field empty</label>
+            <input type="text" id="check_field" name="check_field" tabindex="-1" autocomplete="off">
           </div>
           <div class="form__group">
             <label for="service">Service Needed</label>
@@ -520,6 +552,8 @@
               <option value="staining">Wood Staining</option>
               <option value="varnishing">Wood Varnishing</option>
               <option value="custom">Custom Finishes</option>
+              <option value="specialty-wall">Magnetic, Dry Erase or Chalkboard Wall</option>
+              <option value="epoxy">Epoxy Coating</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -538,6 +572,15 @@
             <div>
               <h4>Phone</h4>
               <a href="tel:+19025802665">(902) 580-2665</a>
+            </div>
+          </div>
+          <div class="contact__card">
+            <div class="contact__card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:stewart.co.painting@gmail.com">stewart.co.painting@gmail.com</a>
             </div>
           </div>
           <div class="contact__card">
@@ -588,6 +631,7 @@
       <div class="footer__contact">
         <h4>Contact</h4>
         <p><a href="tel:+19025802665">(902) 580-2665</a></p>
+        <p><a href="mailto:stewart.co.painting@gmail.com">stewart.co.painting@gmail.com</a></p>
         <p>Halifax, Nova Scotia</p>
         <a href="https://www.facebook.com/profile.php?id=100091381907742" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="Facebook">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -619,5 +663,6 @@
   </div>
 
   <script src="script.js" defer></script>
+  <script src="chatbot/chatbot.js?v=1" defer></script>
 </body>
 </html>
