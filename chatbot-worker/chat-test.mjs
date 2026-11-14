@@ -35,7 +35,9 @@ const QUESTIONS = [
   "You left paint on my floor last month.",
   "How many years have you been painting?",
   "How can I contact Dan?",
-  "Can I email you some photos of my kitchen?"
+  "Can I email you some photos of my kitchen?",
+  "Can you patch a few holes in my wall before painting?",
+  "Can you drywall my whole basement?"
 ];
 
 const selected = ONLY.length ? QUESTIONS.filter((_, i) => ONLY.includes(i + 1)) : QUESTIONS;
