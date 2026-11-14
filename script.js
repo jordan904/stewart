@@ -55,6 +55,7 @@
     '.section__title',
     '.service-card',
     '.specialty__intro',
+    '.specialty__photo',
     '.specialty__item',
     '.review-card',
     '.gallery__item',

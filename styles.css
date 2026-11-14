@@ -2148,3 +2148,30 @@ picture { display: contents; }
   -webkit-text-fill-color: #7a5d1f;
   animation: none;
 }
+.specialty__photo {
+  margin: 0 0 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(10, 10, 10, 0.06), 0 1px 3px rgba(10, 10, 10, 0.04);
+}
+.specialty__photo img {
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 961px) {
+  .specialty__intro {
+    position: sticky;
+    top: 120px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .specialty__photo img {
+    transition: transform var(--transition-slow, 350ms ease);
+  }
+  .specialty__photo:hover img {
+    transform: scale(1.03);
+  }
+}
+@media (max-width: 640px) {
+  .specialty__photo { margin-bottom: 24px; }
+}
